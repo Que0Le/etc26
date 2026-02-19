@@ -1,0 +1,38 @@
+version: '3.8'
+name: etc
+
+services:
+  postgres_14_1:
+    image: postgres:14.1
+    container_name: postgres_14.1
+    hostname: localhost
+
+    labels:
+      NAME: LocalDB-PostgreSQL_14.1
+      TTL: forever
+
+    ports:
+      - "5432:5432"
+
+    restart: always
+
+    command: >
+      sh -c "
+      apt-get update && apt-get install -y postgresql-14-postgis-3 &&
+      apt-get update && apt-get install -y postgresql-plperl-14 &&
+      apt-get update && apt-get install -y libemail-valid-perl &&
+      /usr/local/bin/docker-entrypoint.sh postgres
+      "
+
+    user: root
+
+    environment:
+      TZ: "Europe/Berlin"
+      POSTGRES_PID: "Express"
+      ACCEPT_EULA: Y
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_LOG: logs.log
+      POSTGRES_DB: local
+
+    mem_limit: 1200m

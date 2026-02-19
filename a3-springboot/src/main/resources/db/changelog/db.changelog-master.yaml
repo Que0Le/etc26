@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: etc-tester
+      changes:
+        - createTable:
+            tableName: developers
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: salary
+                  type: INT
+                  constraints:
+                    nullable: false
+#  - changeSet:
+#      id: add-name-column-to-devs
+#      author: etc-tester
+#      changes:
+#        - addColumn:
+#            tableName: developers
+#            columns:
+#              - column:
+#                  name: name
+#                  type: varchar(250)

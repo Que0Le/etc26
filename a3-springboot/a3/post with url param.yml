@@ -1,0 +1,25 @@
+info:
+  name: post with url param
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8080/api/developers?name=dev1&age=123&salary=999999
+  params:
+    - name: name
+      value: dev1
+      type: query
+    - name: age
+      value: "123"
+      type: query
+    - name: salary
+      value: "999999"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
