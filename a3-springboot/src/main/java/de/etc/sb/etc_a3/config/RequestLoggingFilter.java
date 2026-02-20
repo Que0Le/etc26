@@ -1,9 +1,3 @@
-//package de.etc.sb.etc_a3.config;
-//
-//public class RequestLoggerFilter {
-//}
-
-
 package de.etc.sb.etc_a3.config;
 
 import de.etc.sb.etc_a3.util.DevLogger;
